@@ -7,7 +7,11 @@ import Login from './components/Login';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <ColorModeSwitcher justifySelf="flex-end" />
+      <ColorModeSwitcher 
+      justifySelf="flex-end"
+       position="absolute" 
+       top={4} 
+       right={3} />
       <Login />
     </ChakraProvider>
   );

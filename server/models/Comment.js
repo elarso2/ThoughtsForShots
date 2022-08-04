@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const { Schema } = mongoose;
 
@@ -16,6 +17,11 @@ const commentSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => moment(timestamp).format("MM DD, YYYY [at] hh:mm a"),
   },
 });
 

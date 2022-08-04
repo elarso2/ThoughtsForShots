@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Thor Odinson",
+    "email": "Aasgard@techfriends.dev",
+    "password": "password01",
+    "thoughts": "Step Aside COFFEE This is a Job for ALCOHOL! I have a big job tomorrow!!!"
+  },
+  {
+    "name": "selina Kyle",
+    "email": "mkanatalexander@techfriends.dev",
+    "password": "password02",
+    "thoughts": "Not to get technical, But according to chemistry ALCOHOL is a solution & I need a solution today!"
+  },
+  {
+    "name": "Barry Allen",
+    "email": "amiko@techfriends.dev",
+    "password": "password03",
+    "thoughts": "Everybody’s got to believe in something. I believe I’ll have another beer because today was unbelievably bad"
+  },
+  {
+    "name": "Peter Parker",
+    "email": "neighborhoodboy@techfriends.dev",
+    "password": "password04",
+    "thoughts": "Either give me more wine or leave me alone, I've had enough customer interaction today."
+  },
+  {
+    "name": "David Thomas",
+    "email": "dthomas@techfriends.dev",
+    "password": "password08",
+    "thoughts": "I never laugh until I’ve had my coffee & I sure could use a double shot (of espresso) today!"
+  },
+  {
+    "name": "Natasha Romanoff",
+    "email": "evberard@techfriends.dev",
+    "password": "password05",
+    "thoughts": "Like my granny used to say, 'Nothing lasts forever so live it up, drink it down, laugh it off'. Missing her today.."
+  },
+  {
+    "name": "Diana Prince",
+    "email": "princeokay@techfriends.dev",
+    "password": "password06",
+    "thoughts": "My doctor told me to watch my drinking, so I’m off to find a bar with a mirror."
+  },
+  {
+    "name": "Ororo Munroe",
+    "email": "OroMun@techfriends.dev",
+    "password": "password07",
+    "thoughts": "I can’t fully espresso my excitement! It was the best day ever! I need a drink to match my mood"
+  },
+  {
+    "name": "David Bruce Banner",
+    "email": "dbanner@techfriends.dev",
+    "password": "password09",
+    "thoughts": "They said I could be anything, so I decided I wanted to be caffeinated! 14 shots ought to do it!!"
+  },
+  {
+    "name": " Loki Laufeyson",
+    "email": "aasgardson@techfriends.dev",
+    "password": "password10",
+    "thoughts": "you know what they say-Three shots a day keeps the doctor away!"
+  }
+]

@@ -1,14 +1,14 @@
 import React from 'react';
 import { HStack, Flex, Stack, Heading, FormControl, FormLabel, Button, Checkbox, Link } from '@chakra-ui/react';
-import  LoginLogo  from '../assets/Beer.jpg'
+import  LoginLogo  from '../assets/Beer.jpg';
 const Login = () => {
     return (
         <HStack w="full" h="100vh">
-            <Flex w="full" h="full" borderRightWidth={1}>
+            <Flex w="full" borderRightWidth={1}>
                 <img 
                 objectFit="cover" 
                 w="full" 
-                h="full" 
+                h="full"
                 src={LoginLogo} 
                 alt="LoginLogo" />
             </Flex>
@@ -22,7 +22,7 @@ const Login = () => {
                         <FormLabel>
                             Username
                         </FormLabel>
-                        <input placeholder='username' />
+                        <input borderColor="black" placeholder='username' />
                     </FormControl>
                     <FormControl id="password">
                         <FormLabel>

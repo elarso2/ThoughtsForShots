@@ -1,7 +1,8 @@
 import React from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import Login from './components/Login';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
        position="absolute" 
        top={4} 
        right={3} />
-      <Login />
+      {/* <Login /> */}
+      <Signup />
+
     </ChakraProvider>
   );
 }

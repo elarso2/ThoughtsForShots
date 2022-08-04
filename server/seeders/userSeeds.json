@@ -1,0 +1,52 @@
+[
+  {
+    "username": "Thor Odinson",
+    "email": "Aasgard@techfriends.dev",
+    "password": "password01"
+  },
+  {
+    "username": "selina Kyle",
+    "email": "mkanatalexander@techfriends.dev",
+    "password": "password02"
+  },
+  {
+    "username": "Barry Allen",
+    "email": "amiko@techfriends.dev",
+    "password": "password03"
+  },
+  {
+    "username": "Peter Parker",
+    "email": "neighborhoodboy@techfriends.dev",
+    "password": "password04"
+  },
+  {
+    "username": "David Thomas",
+    "email": "dthomas@techfriends.dev",
+    "password": "password08"
+  },
+  {
+    "username": "Natasha Romanoff",
+    "email": "evberard@techfriends.dev",
+    "password": "password05"
+  },
+  {
+    "username": "name": "Diana Prince",
+    "email": "princeokay@techfriends.dev",
+    "password": "password06"
+  },
+  {
+    "username": "Ororo Munroe",
+    "email": "OroMun@techfriends.dev",
+    "password": "password07"
+  },
+  {
+    "username": "David Bruce Banner",
+    "email": "dbanner@techfriends.dev",
+    "password": "password09"
+  },
+  {
+    "username": "Loki Laufeyson",
+    "email": "aasgardson@techfriends.dev",
+    "password": "password10"
+  }
+]

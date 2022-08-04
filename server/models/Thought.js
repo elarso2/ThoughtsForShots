@@ -10,7 +10,7 @@ const thoughtSchema = new Schema({
     minLength: 10,
     maxLength: 280,
   },
-  user: {
+  username: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },

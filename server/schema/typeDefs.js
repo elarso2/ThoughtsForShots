@@ -6,11 +6,11 @@ const typeDefs = gql`
         username: String
         email: String
         thoughts: [Thought]
-        comments: [Comment]
     }
 
     type Thought {
         _id: ID
+        content: String
         user: User
         comments: [Comment]
     }
@@ -32,13 +32,13 @@ const typeDefs = gql`
     }
 
     type Query {
-
+        user: User
     }
 
     type Mutation {
         createUser(username: String!, email: String!, password: String!): Auth
         createThought()
-        
+
     }
 `;
 

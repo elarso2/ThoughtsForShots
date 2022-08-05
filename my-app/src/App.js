@@ -3,7 +3,6 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Forum from './pages/Forum';
-import { RecoilRoot } from 'recoil';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 
@@ -18,7 +17,7 @@ function App() {
        right={3} />
       {/* <Login /> */}
       {/* <Signup /> */}
-        <Forum />
+      <Forum />
 
       </ChakraProvider>
     

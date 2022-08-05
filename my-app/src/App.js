@@ -7,7 +7,7 @@ import Signup from './pages/Signup';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
       <ColorModeSwitcher 
       justifySelf="flex-end"
        position="absolute" 

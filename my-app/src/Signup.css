@@ -11,5 +11,8 @@
     border-radius: 1rem;
     padding: 5;
     text-align: center;
+}
 
+.formStyle {
+    color-scheme: form-white;
 }

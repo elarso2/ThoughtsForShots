@@ -11,10 +11,12 @@
     "@testing-library/user-event": "^14.4.1",
     "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
+    "next": "^12.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^3.11.0",
     "react-scripts": "5.0.1",
+    "recoil": "^0.7.4",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.11"
   },
@@ -22,7 +24,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "next dev",
+    "Nbuild": "next build",
+    "Nstart": "next start",
+    "lint": "next lint"
   },
   "eslintConfig": {
     "extends": "react-app"

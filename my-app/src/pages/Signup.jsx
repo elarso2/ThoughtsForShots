@@ -5,16 +5,12 @@ import { FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/form-contro
 import { Heading, VStack } from "@chakra-ui/layout";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import TextField from "../components/TextField";
+import "../Signup.css";
 import SignupLogo from '../assets/Shots.jpg';
 
 const Signup = () => {
 
-     {/* <Flex w="full" h="full">
-            <img object-fit="cover" w="full" h="full" src={SignupLogo} alt="SignupImage" />
-            <Heading>Sign Up!</Heading>
-        </Flex> */}
-
+    // Formik Hook to validate password and username length
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -32,50 +28,55 @@ const Signup = () => {
     });
 
     return (
-        <VStack
-        as="form"
-        mx="auto"
-        w={{ base: "90%", md: 500 }}
-        h="100vh"
-        justifyContent="center"
-        onSubmit={formik.handleSubmit}>
+        <body className='container'>
+            <VStack
+            as="form"
+            mx="auto"
+            w={{ base: "90%", md: 500 }}
+            h="100vh"
+            justifyContent="center"
+            onSubmit={formik.handleSubmit}>
 
-        <Heading>
-            Sign Up!
-        </Heading>
+                
+                    <Heading>
+                        Sign Up!
+                    </Heading>
 
-        {/* Form for Username */}
-        <FormControl py={3} id="user_id" isInvalid={formik.errors.username && formik.touched.username}>
-            <FormLabel>
-                Username
-            </FormLabel>
-            <Input name='username' placeholder="enter username" onChange={formik.handleChange} value={formik.values.username} onBlur={formik.handleBlur} />
-            <FormErrorMessage>{formik.errors.username}</FormErrorMessage>
-        </FormControl>
+                    {/* Form for Username */}
+                    <FormControl py={3} id="user_id" isInvalid={formik.errors.username && formik.touched.username}>
+                        <FormLabel>
+                            Username
+                        </FormLabel>
+                        <Input name='username' placeholder="enter username" {...formik.getFieldProps("username")}  />
+                        <FormErrorMessage>{formik.errors.username}</FormErrorMessage>
+                    </FormControl>
 
 
-        {/* Form for Email */}
-        <FormControl py={3} id="email_id">
-            <FormLabel>
-                Email
-            </FormLabel>
-            <Input name='email' placeholder='enter email' onChange={formik.handleChange} value={formik.values.email} />
-        </FormControl>
+                    {/* Form for Email */}
+                    <FormControl py={3} id="email_id">
+                        <FormLabel>
+                            Email
+                        </FormLabel>
+                        <Input name='email' placeholder='enter email' onChange={formik.handleChange} value={formik.values.email} />
+                    </FormControl>
 
-        {/* Form for Password */}
-        <FormControl py={3} id="password_id" isInvalid={formik.errors.password && formik.touched.password}>
-            <FormLabel>
-                Password
-            </FormLabel>
-            <Input name='password' placeholder='enter password' onChange={formik.handleChange} value={formik.values.password} onBlur={formik.handleBlur} />
-            <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
-        </FormControl>
+                    {/* Form for Password */}
+                    <FormControl py={3} id="password_id" isInvalid={formik.errors.password && formik.touched.password}>
+                        <FormLabel>
+                            Password
+                        </FormLabel>
+                        <Input name='password' placeholder='enter password' {...formik.getFieldProps("password")} />
+                        <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
+                    </FormControl>
 
-        <Button type='submit' variant="outline" colorScheme="yellow">
-            Create Account
-        </Button>
+                    <Button type='submit' variant="outline" colorScheme="yellow">
+                        Create Account
+                    </Button>
+               
 
-        </VStack>
+            </VStack>
+        </body>
+            
 
     )
 };

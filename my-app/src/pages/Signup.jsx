@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text, Box } from '@chakra-ui/react'
 import { Input } from "@chakra-ui/input"
 import { Button } from "@chakra-ui/button";
 import { FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/form-control";
@@ -28,24 +29,26 @@ const Signup = () => {
     });
 
     return (
-        <body className='container'>
+        <body className='SignupImg'>
             <VStack
             as="form"
             mx="auto"
-            w={{ base: "90%", md: 500 }}
+            w={{ base: "75%", md: 500 }}
             h="100vh"
             justifyContent="center"
-            onSubmit={formik.handleSubmit}>
-
-                
-                    <Heading>
+            onSubmit={formik.handleSubmit}
+            className='winterCitrus'>
+                <Box>
+                    <Heading color="#421413">
                         Sign Up!
                     </Heading>
 
                     {/* Form for Username */}
                     <FormControl py={3} id="user_id" isInvalid={formik.errors.username && formik.touched.username}>
                         <FormLabel>
-                            Username
+                            <Text color="#932D30" textAlign="center">
+                                Username
+                            </Text>
                         </FormLabel>
                         <Input name='username' placeholder="enter username" {...formik.getFieldProps("username")}  />
                         <FormErrorMessage>{formik.errors.username}</FormErrorMessage>
@@ -55,24 +58,28 @@ const Signup = () => {
                     {/* Form for Email */}
                     <FormControl py={3} id="email_id">
                         <FormLabel>
-                            Email
+                            <Text color="#932D30" textAlign="center">
+                                Email
+                            </Text>
                         </FormLabel>
                         <Input name='email' placeholder='enter email' onChange={formik.handleChange} value={formik.values.email} />
                     </FormControl>
 
                     {/* Form for Password */}
                     <FormControl py={3} id="password_id" isInvalid={formik.errors.password && formik.touched.password}>
-                        <FormLabel>
-                            Password
+                        <FormLabel px={5}>
+                            <Text color="#932D30" textAlign="center">
+                                Password
+                            </Text>
                         </FormLabel>
                         <Input name='password' placeholder='enter password' {...formik.getFieldProps("password")} />
                         <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
                     </FormControl>
 
-                    <Button type='submit' variant="outline" colorScheme="yellow">
+                    <Button type='submit' variant="outline" colorScheme="#44000A">
                         Create Account
                     </Button>
-               
+                </Box>
 
             </VStack>
         </body>

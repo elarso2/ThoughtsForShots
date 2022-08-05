@@ -16,8 +16,8 @@ function App() {
        top={4} 
        right={3} />
       {/* <Login /> */}
-      {/* <Signup /> */}
-      <Forum />
+      <Signup />
+      {/* <Forum /> */}
 
       </ChakraProvider>
     

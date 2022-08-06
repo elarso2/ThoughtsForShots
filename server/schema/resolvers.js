@@ -1,7 +1,8 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Thought, Comment } = require("../models");
+const { User, Thought, Comment, Drink } = require("../models");
 const { signToken } = require("../utils/auth");
-const stripe = require("stripe")(SECRETKEYGOESHERE);
+require("dotenv").config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const resolvers = {
   Query: {
@@ -23,6 +24,7 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("thoughts");
       }
       throw new AuthenticationError("You must log in.");
+
     },
   },
   Mutation: {

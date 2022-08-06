@@ -1,0 +1,102 @@
+[
+  {
+    "content": "Step Aside COFFEE This is a Job for ALCOHOL! I have a big job tomorrow!!!",
+    "comments": [
+      {
+        "commentText": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be thne you def need a drink!",
+        "author": "selina Kyle"
+      }
+    ],
+    "username": "Thor Odinson"
+  },
+  {
+    "content": "Not to get technical, But according to chemistry ALCOHOL is a solution & I need a solution today!",
+    "comments": [
+      {
+        "commentText": "Hell Yeah!!",
+        "author": "Peter Parker"
+      }
+    ],
+    "username": "selina Kyle"
+  },
+  {
+    "content": "Everybody’s got to believe in something. I believe I’ll have another beer because today was unbelievably bad",
+    "comments": [
+      {
+        "commentText": "Hope your day turns around!",
+        "author": "David Thomas"
+      }
+    ],
+    "username": "Barry Allen"
+  },
+  {
+    "content": "Either give me more wine or leave me alone, I've had enough customer interaction today.",
+    "comments": [
+      {
+        "commentText": "I'm not that great with customers either; I'm just a good programmer with great habits.",
+        "author": "Barry Allen"
+      }
+    ],
+    "username": "Peter Parker"
+  },
+  {
+    "content": "I never laugh until I’ve had my coffee & I sure could use a double shot (of espresso) today!",
+    "comments": [
+      {
+        "commentText": "Love it that you are talking about coffee shots rather than liquor shots!!",
+        "author": "Natasha Romanoff"
+      }
+    ],
+    "username": "David Thomas"
+  },
+  {
+    "content": "Like my granny used to say, 'Nothing lasts forever so live it up, drink it down, laugh it off'. Missing her today..",
+    "comments": [
+      {
+        "commentText": "Here's to your Granny!",
+        "author": "Ororo Munroe"
+      }
+    ],
+    "username": "Natasha Romanoff"
+  },
+  {
+    "content": "My doctor told me to watch my drinking, so I’m off to find a bar with a mirror.",
+    "comments": [
+      {
+        "commentText": "I see what you did there ;)",
+        "author": "Loki Laufeyson"
+      }
+    ],
+    "username": "Diana Prince"
+  },
+  {
+    "content": "I can’t fully espresso my excitement! It was the best day ever! I need a drink to match my mood",
+    "comments": [
+      {
+        "commentText": "Delivering good software today??",
+        "author": "David Bruce Banner"
+      }
+    ],
+    "username": "Ororo Munroe"
+  },
+  {
+    "content": "They said I could be anything, so I decided I wanted to be caffeinated! 14 shots ought to do it!!",
+    "comments": [
+      {
+        "commentText": "Delivering good software today??",
+        "author": "David Thomas"
+      }
+    ],
+    "username": "David Bruce Banner"
+  },
+  {
+    "content": "you know what they say-Three shots a day keeps the doctor away!",
+    "comments": [
+      {
+        "commentText": "I know that its actually a fact!",
+        "author": "Thor Odinson"
+      }
+    ],
+    "username": "Loki Laufeyson"
+  }
+]

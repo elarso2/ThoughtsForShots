@@ -4,7 +4,9 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Forum from './pages/Forum';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-
+import {Header} from './components/Header';
+import {ProfileCard} from './components/ProfileCard';
+import {ThoughtsPage} from './components/ThoughtsPage';
 
 function App() {
   return (
@@ -16,9 +18,11 @@ function App() {
        top={4} 
        right={3} />
       {/* <Login /> */}
-      <Signup />
+        <Signup />
       {/* <Forum /> */}
-
+      <Header />
+      <ProfileCard />
+      <ThoughtsPage />
       </ChakraProvider>
     
   );

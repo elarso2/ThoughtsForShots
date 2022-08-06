@@ -12,7 +12,9 @@ import './style.css';
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
 // This is a publishable key supplied by Strips. If you want your own Stripe account,
 // replace this and the server key with your own
-const stripePromise = loadStripe('');
+const stripePromise = loadStripe(
+  'pk_live_51LStzRFFRc89vzt1ZSaIhfG70L1sdLovWRRFgVxEDQ5YuVuvekj2UUJhkwRvNbqZtFHy3cHMcTZ9tMbTGF3S0SkI00ZfRQzPMa'
+);
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -30,16 +32,16 @@ const Cart = () => {
 
   // If the cart's length or if the dispatch function is updated, check to see if the cart is empty.
   // If so, invoke the getCart method and populate the cart with the existing from the session
-  useEffect(() => {
-    async function getCart() {
-      const cart = await idbPromise('cart', 'get');
-      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-    }
+  // useEffect(() => {
+  //   async function getCart() {
+  //     const cart = await idbPromise('cart', 'get');
+  //     dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+  // //   }
 
-    if (!state.cart.length) {
-      getCart();
-    }
-  }, [state.cart.length, dispatch]);
+  //   if (!state.cart.length) {
+  //     getCart();
+  //   }
+  // }, [state.cart.length, dispatch]);
 
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
@@ -56,16 +58,16 @@ const Cart = () => {
   // When the submit checkout method is invoked, loop through each item in the cart
   // Add each item id to the productIds array and then invoke the getCheckout query passing an object containing the id for all our products
   function submitCheckout() {
-    const productIds = [];
+    const drinksIds = [];
 
     state.cart.forEach(item => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
+        drinksIds.push(item._id);
       }
     });
 
     getCheckout({
-      variables: { products: productIds },
+      variables: { drinksIds },
     });
   }
 

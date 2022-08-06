@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const moment = require("moment");
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 const thoughtSchema = new Schema({
   content: {
-    type: Text,
+    type: String,
     required: true,
     minLength: 10,
     maxLength: 280,

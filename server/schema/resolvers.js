@@ -6,48 +6,25 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const resolvers = {
   Query: {
-    drink: async (parent, { _id }) => {
-      return await Drink.findById(_id);
+    users: async () => {
+      return User.find().populate("thoughts");
     },
-
-    user: async (parent, args, context) => {
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate("thoughts");
+    },
+    thoughts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Thought.find(params).sort({ createdAt: -1 });
+    },
+    thought: async (parent, { thoughtId }) => {
+      return Thought.findOne({ _id: thoughtId });
+    },
+    me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: "tab.drink",
-          populate: "tab",
-        });
-
-        return user;
+        return User.findOne({ _id: context.user._id }).populate("thoughts");
       }
+      throw new AuthenticationError("You must log in.");
 
-      throw new AuthenticationError("Not logged in");
-    },
-
-    checkout: async (parent, args, context) => {
-      const url = new URL(context.headers.referer).origin;
-      const line_items = [];
-
-      // const { drink } = await tab.populate("drink");
-
-      for (let i = 0; i < drink.length; i++) {
-        const price = await stripe.price.create({
-          drink: drink._id,
-          currency: "usd",
-        });
-
-        line_items.push({
-          price: price._id,
-          quantity: 1,
-        });
-      }
-
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items,
-        mode: "payment",
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`,
-      });
     },
   },
   Mutation: {
@@ -71,5 +48,8 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-  },
+    deleteThought: 
+  }
 };
+
+module.exports = resolvers;

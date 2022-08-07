@@ -40,7 +40,7 @@ const typeDefs = gql`
   type Query {
     drink: Drink
     user: User
-    checkout(drink: [ID]!): Checkout
+    checkout(drinks: [ID]!): Checkout
   }
 
   type Mutation {

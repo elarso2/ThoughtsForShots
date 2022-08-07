@@ -27,7 +27,7 @@ const resolvers = {
       const url = new URL(context.headers.referer).origin;
       const line_items = [];
 
-      const { drink } = await tab.populate("drink");
+      // const { drink } = await tab.populate("drink");
 
       for (let i = 0; i < drink.length; i++) {
         const price = await stripe.price.create({

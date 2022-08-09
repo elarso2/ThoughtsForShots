@@ -7,7 +7,7 @@ const Comment = require("./Comment");
 
 const userSchema = new Schema({
   username: {
-    type: Schema.Types.ObjectId,
+    type: String,
     required: true,
   },
   email: {

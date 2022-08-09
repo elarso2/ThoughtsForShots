@@ -11,7 +11,8 @@ const thoughtSchema = new Schema({
     maxLength: 280,
   },
   username: {
-    type: Schema.Types.ObjectId,
+    type: String,
+    required: true,
     ref: "User",
   },
   createdAt: {

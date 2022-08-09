@@ -48,13 +48,13 @@ const typeDefs = gql`
     updateUser(username: String, email: String): User
     login(email: String!): Auth
     createThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    addComment(
+    createComment(
       thoughtId: ID!
       commentText: String!
       author: String!
     ): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    deleteThought(thoughtId: ID!): Thought
+    deleteComment(thoughtId: ID!, commentId: ID!): Thought
   }
 `;
 

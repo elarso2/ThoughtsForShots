@@ -5,7 +5,7 @@ import Signup from './pages/Signup';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 import Profile from './pages/Profile';
-import Forumn from './pages/Forum'
+import Forumn from './pages/Forum';
 
 import {
   ApolloClient,
@@ -44,40 +44,23 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider>
-      <ColorModeSwitcher
-              justifySelf="flex-end"
-              position="absolute"
-              top={4}
-              right={3}
-            />
-      <Router>
-        <Routes>
-          
-            
-              <Route
-                path='/'
-                element={<Login />}>
-              </Route>
+        <ColorModeSwitcher
+          justifySelf="flex-end"
+          position="absolute"
+          top={4}
+          right={3}
+        />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />}></Route>
 
-              <Route
-                path='/signup'
-                element={<Signup />}>
-              </Route>
+            <Route path="/signup" element={<Signup />}></Route>
 
-              <Route 
-                path='/profile'
-                element={<Profile />}>
-              </Route>
+            <Route path="/profile" element={<Profile />}></Route>
 
-              <Route
-                path='/Home'
-                element={<Forumn />}>
-              </Route>
-
-            
-         
-        </Routes>
-      </Router>
+            <Route path="/Home" element={<Forumn />}></Route>
+          </Routes>
+        </Router>
       </ChakraProvider>
     </ApolloProvider>
   );

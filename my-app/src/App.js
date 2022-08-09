@@ -2,11 +2,12 @@ import React from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Forum from './pages/Forum';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
+
 import { Header } from './components/Header';
 import { ProfileCard } from './components/ProfileCard';
 import { ThoughtsPage } from './components/ThoughtsPage';
+import Profile from './pages/Profile'
 
 function App() {
   return (
@@ -18,12 +19,13 @@ function App() {
         right={3}
       />
       {/* <Login /> */}
-      <Signup />
       {/* <Forum /> */}
-      <Header />
-      <Routes></Routes>
-      <ProfileCard />
-      <ThoughtsPage />
+      {/* <Routes></Routes> */}
+      {/* <Signup /> */}
+      {/* <Header /> */}
+      {/* <ProfileCard />
+      <ThoughtsPage /> */}
+      <Profile />
     </ChakraProvider>
   );
 }

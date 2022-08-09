@@ -21,7 +21,7 @@ function App() {
       <Signup />
       {/* <Forum /> */}
       <Header />
-      <Routes></Routes>
+      {/* <Routes></Routes> */}
       <ProfileCard />
       <ThoughtsPage />
     </ChakraProvider>

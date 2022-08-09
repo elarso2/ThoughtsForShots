@@ -24,7 +24,6 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("thoughts");
       }
       throw new AuthenticationError("You must log in.");
-
     },
   },
   Mutation: {

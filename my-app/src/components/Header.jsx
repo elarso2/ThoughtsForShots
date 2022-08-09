@@ -31,8 +31,8 @@ export function Header() {
         <Button w='120px' h='40px' bg='yellow.600'>
         Order History
         </Button>
-        <Button w='80px' h='40px' bg='yellow.500'>
-          Checkout
+        <Button w='110px' h='40px' bg='yellow.500'>
+          Pay Your Tab
         </Button>
       </HStack>
       <Heading fontWeight='800' fontSize='48px' alignItems="center[">

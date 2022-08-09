@@ -48,7 +48,7 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    addComment: async (parent, { thoughtId, commentText, author }) => {
+    addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
       return Thought.findOneAndUpdate(
         { _id: thoughtId },
         {

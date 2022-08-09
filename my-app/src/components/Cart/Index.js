@@ -30,19 +30,6 @@ const Cart = () => {
     }
   }, [data]);
 
-  // If the cart's length or if the dispatch function is updated, check to see if the cart is empty.
-  // If so, invoke the getCart method and populate the cart with the existing from the session
-  // useEffect(() => {
-  //   async function getCart() {
-  //     const cart = await idbPromise('cart', 'get');
-  //     dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-  // //   }
-
-  //   if (!state.cart.length) {
-  //     getCart();
-  //   }
-  // }, [state.cart.length, dispatch]);
-
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
@@ -50,7 +37,7 @@ const Cart = () => {
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
-      sum += item.price * item.purchaseQuantity;
+      sum += item.price * item.quantity;
     });
     return sum.toFixed(2);
   }
@@ -61,11 +48,11 @@ const Cart = () => {
     const drinksIds = [];
 
     state.cart.forEach(item => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
+      for (let i = 0; i < item.quantity; i++) {
         drinksIds.push(item._id);
       }
     });
-
+    // const drinksIds = [];
     getCheckout({
       variables: { drinksIds },
     });

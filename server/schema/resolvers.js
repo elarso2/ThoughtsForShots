@@ -48,6 +48,7 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+
     addComment: async (parent, { thoughtId, commentText, author }) => {
       return Thought.findOneAndUpdate(
         { _id: thoughtId },
@@ -71,6 +72,7 @@ const resolvers = {
       );
     },
   },
+
 };
 
 module.exports = resolvers;

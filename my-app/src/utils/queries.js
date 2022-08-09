@@ -16,14 +16,10 @@ export const QUERY_USER = gql`
   }
 `;
 
-// Query Thoughts
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($drinks: [ID]!) {
+    checkout(drinks: $drinks) {
+      session
     }
   }
 `;

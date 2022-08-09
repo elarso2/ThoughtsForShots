@@ -48,8 +48,31 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    deleteThought: 
-  }
+
+    addComment: async (parent, { thoughtId, commentText, author }) => {
+      return Thought.findOneAndUpdate(
+        { _id: thoughtId },
+        {
+          $addToSet: { comments: { commentText, author } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+    removeThought: async (parent, { thoughtId }) => {
+      return Thought.findOneAndDelete({ _id: thoughtId });
+    },
+    removeComment: async (parent, { thoughtId, commentId }) => {
+      return Thought.findOneAndUpdate(
+        { _id: thoughtId },
+        { $pull: { comments: { _id: commentId } } },
+        { new: true }
+      );
+    },
+  },
+
 };
 
 module.exports = resolvers;

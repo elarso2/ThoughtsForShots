@@ -43,12 +43,12 @@ const typeDefs = gql`
     checkout(drink: [ID]!): Checkout
     user(username: String!): User
     thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): thought
+    thought(thoughtId: ID!): Thought
     me: User
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, thoughts: [Thought]): Auth
+    createUser(username: String!, email: String!): Auth
     updateUser(username: String, email: String): User
     login(email: String!): Auth
     createThought(thoughtText: String!, thoughtAuthor: String!): Thought

@@ -61,6 +61,7 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    
     createComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
@@ -112,6 +113,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
   },
+
 };
 
 module.exports = resolvers;

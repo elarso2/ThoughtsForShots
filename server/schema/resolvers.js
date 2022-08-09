@@ -24,7 +24,6 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("thoughts");
       }
       throw new AuthenticationError("You must log in.");
-
     },
   },
   Mutation: {
@@ -48,8 +47,8 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    deleteThought: 
-  }
+    deleteThought: {},
+  },
 };
 
 module.exports = resolvers;

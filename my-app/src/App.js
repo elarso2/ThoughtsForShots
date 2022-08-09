@@ -2,7 +2,12 @@ import React from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Forum from './pages/Forum';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
+
+import { Header } from './components/Header';
+import { ProfileCard } from './components/ProfileCard';
+import { ThoughtsPage } from './components/ThoughtsPage';
 
 import Profile from './pages/Profile';
 import Forumn from './pages/Forum';
@@ -50,6 +55,7 @@ function App() {
           top={4}
           right={3}
         />
+
         <Router>
           <Routes>
             <Route path="/" element={<Login />}></Route>

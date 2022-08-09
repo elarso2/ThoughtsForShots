@@ -25,6 +25,9 @@ const resolvers = {
       }
       throw new AuthenticationError("You must log in.");
     },
+    drink: async (parent, { _id }) => {
+      return await Drink.findByID(_id);
+    },
   },
   Mutation: {
     createUser: async (parent, args) => {
@@ -61,7 +64,7 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    
+
     createComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(

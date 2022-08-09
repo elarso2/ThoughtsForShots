@@ -2,6 +2,8 @@ import React from 'react';
 import { HStack, Flex, Stack, Heading, FormControl, FormLabel, Button, Checkbox, Link } from '@chakra-ui/react';
 import  LoginLogo  from '../assets/Beer.jpg';
 import Logo from '../assets/TfSlogo.png'
+
+
 const Login = () => {
     return (
         <HStack w="full" h="100vh">

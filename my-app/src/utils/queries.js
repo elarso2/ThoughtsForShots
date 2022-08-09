@@ -9,18 +9,36 @@ export const QUERY_USER = gql`
       email
       thoughts {
         _id
-        thoughtText
+        content
         createdAt
+        comments {
+          _id
+          commentText
+          author
+          createdAt
+        }
       }
     }
   }
 `;
 
+// Query Checkout
 export const QUERY_CHECKOUT = gql`
   query getCheckout($drinks: [ID]!) {
     checkout(drinks: $drinks) {
       session
     }
+   }
+  `;
+    
+// Query Thoughts
+export const QUERY_THOUGHTS = gql`
+  query getThoughts {
+    thoughts {
+      _id
+      content
+      username
+      createdAt
   }
 `;
 
@@ -35,7 +53,7 @@ export const QUERY_SINGLE_THOUGHT = gql`
       comments {
         _id
         commentText
-        commentAuthor
+        author
         createdAt
       }
     }
@@ -51,8 +69,8 @@ export const QUERY_ME = gql`
       email
       thoughts {
         _id
-        thoughtText
-        thoughtAuthor
+        content
+        username
         createdAt
       }
     }

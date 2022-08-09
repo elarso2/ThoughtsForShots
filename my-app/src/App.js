@@ -55,13 +55,18 @@ function App() {
           top={4}
           right={3}
         />
-        {/* <Login /> */}
-        <Signup />
-        {/* <Forum /> */}
-        <Header />
-        {/* <Routes></Routes> */}
-        <ProfileCard />
-        <ThoughtsPage />
+
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />}></Route>
+
+            <Route path="/signup" element={<Signup />}></Route>
+
+            <Route path="/profile" element={<Profile />}></Route>
+
+            <Route path="/Home" element={<Forumn />}></Route>
+          </Routes>
+        </Router>
       </ChakraProvider>
     </ApolloProvider>
   );

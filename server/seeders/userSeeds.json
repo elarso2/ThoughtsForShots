@@ -1,51 +1,51 @@
 [
   {
-    "username": "Thor Odinson",
+    "username": "ThorOdinson",
     "email": "Aasgard@techfriends.dev",
     "password": "password01"
   },
   {
-    "username": "selina Kyle",
+    "username": "selinaKyle",
     "email": "mkanatalexander@techfriends.dev",
     "password": "password02"
   },
   {
-    "username": "Barry Allen",
+    "username": "BarryAllen",
     "email": "amiko@techfriends.dev",
     "password": "password03"
   },
   {
-    "username": "Peter Parker",
+    "username": "PeterParker",
     "email": "neighborhoodboy@techfriends.dev",
     "password": "password04"
   },
   {
-    "username": "David Thomas",
+    "username": "DavidThomas",
     "email": "dthomas@techfriends.dev",
     "password": "password08"
   },
   {
-    "username": "Natasha Romanoff",
+    "username": "NatashaRomanoff",
     "email": "evberard@techfriends.dev",
     "password": "password05"
   },
   {
-    "username": "Diana Prince",
+    "username": "Dian Prince",
     "email": "princeokay@techfriends.dev",
     "password": "password06"
   },
   {
-    "username": "Ororo Munroe",
+    "username": "OroroMunroe",
     "email": "OroMun@techfriends.dev",
     "password": "password07"
   },
   {
-    "username": "David Bruce Banner",
+    "username": "DavidBruceBanner",
     "email": "dbanner@techfriends.dev",
     "password": "password09"
   },
   {
-    "username": "Loki Laufeyson",
+    "username": "LokiLaufeyson",
     "email": "aasgardson@techfriends.dev",
     "password": "password10"
   }

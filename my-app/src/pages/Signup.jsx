@@ -20,7 +20,7 @@ const Signup = () => {
         },
         validationSchema: Yup.object({
             username: Yup.string().required("Username Required").min(6, "Username much be minimum of 6 characters long, username too short! "),
-            password: Yup.string().required("Password Required").min(5, "Password much be minimum of 5 characters long, password too short! "),
+            password: Yup.string().required("Password Required").min(8, "Password much be minimum of 5 characters long, password too short! "),
         }),
         onSubmit: (values, actions) => {
             alert(JSON.stringify(values, null, 3));
@@ -38,7 +38,8 @@ const Signup = () => {
             justifyContent="center"
             onSubmit={formik.handleSubmit}
             className='winterCitrus'>
-                
+
+
                     <Heading color="#421413">
                         Sign Up!
                     </Heading>

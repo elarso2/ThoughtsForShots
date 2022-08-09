@@ -1,6 +1,7 @@
 import React from 'react';
 import { HStack, Flex, Stack, Heading, FormControl, FormLabel, Button, Checkbox, Link } from '@chakra-ui/react';
 import  LoginLogo  from '../assets/Beer.jpg';
+import Logo from '../assets/TfSlogo.png'
 const Login = () => {
     return (
         <HStack w="full" h="100vh">
@@ -15,6 +16,7 @@ const Login = () => {
 
             <Flex w="full" h="full" alignItems="center" justifyContent="center">
                 <Stack w="full" maxW="md" spacing={4} p={6}>
+                    <img src={Logo} alt="Logo"></img>
                     <Heading fontSize="2xl" color="yellow.500">
                         Login to your account!
                     </Heading>

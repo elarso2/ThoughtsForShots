@@ -28,9 +28,9 @@ export const QUERY_CHECKOUT = gql`
     checkout(drinks: $drinks) {
       session
     }
-   }
-  `;
-    
+  }
+`;
+
 // Query Thoughts
 export const QUERY_THOUGHTS = gql`
   query getThoughts {
@@ -39,6 +39,7 @@ export const QUERY_THOUGHTS = gql`
       content
       username
       createdAt
+    }
   }
 `;
 

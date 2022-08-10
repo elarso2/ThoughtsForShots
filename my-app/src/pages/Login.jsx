@@ -104,7 +104,9 @@ const Login = (props) => {
                         <Checkbox colorScheme="yellow">
                             Remember Me
                         </Checkbox>
-                        <Button colorScheme="yellow" type='submit' py={2}>Submit</Button>
+                        <Button colorScheme="yellow" type='submit' py={2}>
+                            <Link as={RouterLink} to="/home">Submit</Link>
+                        </Button>
                         <Link color={"yellow.500"}>
                             Forgot Password?
                         </Link>

@@ -64,7 +64,7 @@ function App() {
 
             <Route path="/profile" element={<Profile />}></Route>
 
-            <Route path="/Home" element={<Forumn />}></Route>
+            <Route path="/home" element={<Forumn />}></Route>
           </Routes>
         </Router>
       </ChakraProvider>

@@ -11,7 +11,7 @@ import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART } from '../utils/actions';
 import ProfilePic from '../assets/t-pain.jpg';
 
-export function ThoughtsPage() {
+export function ThoughtsPage({ thoughts, showUsername = true }) {
   const [state, dispatch] = useStoreContext();
 
   function addToTab() {

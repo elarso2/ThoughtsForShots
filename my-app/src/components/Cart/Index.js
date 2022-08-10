@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
+// import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART } from '../../utils/actions';
-import './style.css';
+import './styles.css';
 
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
 // This is a publishable key supplied by Strips. If you want your own Stripe account,
@@ -18,6 +18,9 @@ const stripePromise = loadStripe(
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+  // const dispatch = () => {};
+  // const state = {};
+  console.log(state);
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend

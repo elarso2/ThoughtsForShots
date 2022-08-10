@@ -22,7 +22,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -48,27 +48,27 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <StoreProvider>
-        <ChakraProvider>
-          <ColorModeSwitcher
-            justifySelf="flex-end"
-            position="absolute"
-            top={4}
-            right={3}
-          />
+        {/* <ChakraProvider> */}
+        <ColorModeSwitcher
+          justifySelf="flex-end"
+          position="absolute"
+          top={4}
+          right={3}
+        />
 
-          <Router>
-            <Routes>
-              <Route path="/" element={<Login />}></Route>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />}></Route>
 
-              <Route path="/signup" element={<Signup />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
 
-              <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
 
 
             <Route path="/home" element={<Forumn />}></Route>
           </Routes>
         </Router>
-      </ChakraProvider>
+        {/* </ChakraProvider> */}
 
       </StoreProvider>
     </ApolloProvider>

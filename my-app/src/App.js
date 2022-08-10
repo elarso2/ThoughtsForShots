@@ -64,10 +64,12 @@ function App() {
 
               <Route path="/profile" element={<Profile />}></Route>
 
-              <Route path="/home" element={<Forumn />}></Route>
-            </Routes>
-          </Router>
-        </ChakraProvider>
+
+            <Route path="/home" element={<Forumn />}></Route>
+          </Routes>
+        </Router>
+      </ChakraProvider>
+
       </StoreProvider>
     </ApolloProvider>
   );

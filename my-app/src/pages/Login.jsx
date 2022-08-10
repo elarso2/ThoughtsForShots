@@ -41,10 +41,57 @@ const Login = props => {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
-    }
+            <Flex w="full" h="full" alignItems="center" justifyContent="center">
+                <Stack w="full" maxW="md" spacing={4} p={6}>
+                    <img src={Logo} alt="Logo"></img>
+                    <Heading fontSize="2xl" color="yellow.500">
+                        Login to your account!
+                    </Heading>
+                    <form onSubmit={handleFormSubmit}>
+                    <FormControl id="email" >
+                        <FormLabel>
+                            Email
+                        </FormLabel>
+                        <input  
+                        placeholder='username'
+                        name='email'
+                        type='email'
+                        value={formState.email}
+                        onChange={handleChange} 
+                        />
+                    </FormControl>
+                    <FormControl id="password" py={4}>
+                        <FormLabel>
+                            Password
+                        </FormLabel>
+                        <input 
+                        placeholder='password'
+                        name='password'
+                        type='password'
+                        value={formState.password}
+                        onChange={handleChange}
+                        />
+                    </FormControl>
+                    <VStack 
+                    spacing={4} 
+                    direction="row" 
+                    align="start" 
+                    justify="space-between"
+                    py={1}
+                    >
+                        <Checkbox colorScheme="yellow">
+                            Remember Me
+                        </Checkbox>
+                        <Button colorScheme="yellow" type='submit' py={2}>
+                            <Link as={RouterLink} to="/home">Submit</Link>
+                        </Button>
+                        <Link color={"yellow.500"}>
+                            Forgot Password?
+                        </Link>
+                        <h3 py={4}>Don't have an account? <br></br>
+                            <Link as={RouterLink} to="/signup" color="yellow.500">Sign Up</Link>
+                        </h3>
+                    </VStack>
 
     // clear form values
     setFormState({

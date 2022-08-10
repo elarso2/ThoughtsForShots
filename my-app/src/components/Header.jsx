@@ -25,7 +25,9 @@ export function Header() {
         </Box>
         
         <Spacer />
-        
+        <Button w='120px' h='40px' bg='yellow.900'>
+          <Link to='/home'>Home</Link>
+        </Button>
         <Button w='120px' h='40px' bg='yellow.800'>
           <Link to='/profile'>Profile</Link>
         </Button>

@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   Textarea,
+  FormControl
 } from '@chakra-ui/react';
 
 import React, { useState } from 'react';
@@ -78,6 +79,8 @@ export function ProfileCard() {
       textAlign="center"
       as="section"
     >
+      <FormControl>
+        <form onSubmit={handleFormSubmit}>
       <Flex>
         <Box bg="#F0EAFB" p="60px">
           <Image
@@ -102,6 +105,7 @@ export function ProfileCard() {
           <Text textAlign="center">Share your thought below</Text>
           <Stack as="ul" spacing="20px" pt="24px">
             <Textarea
+              name="thoughtText"
               minW="500px"
               placeholder="Begin typing your thought..."
               value={thoughtText}
@@ -110,6 +114,8 @@ export function ProfileCard() {
           </Stack>
         </Box>
       </Flex>
+      </form>
+      </FormControl>
     </Box>
   );
 }

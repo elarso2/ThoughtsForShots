@@ -6,7 +6,7 @@ import {
   Text,
   Image,
   Textarea,
-  FormControl
+  FormControl,
 } from '@chakra-ui/react';
 
 import React, { useState } from 'react';
@@ -22,14 +22,14 @@ export function ProfileCard() {
   // if we want to keep track of character count
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
+  const [createThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
       try {
         const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
 
         cache.writeQuery({
           query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          data: { thoughts: [createThought, ...thoughts] },
         });
       } catch (err) {
         console.error(err);
@@ -38,7 +38,7 @@ export function ProfileCard() {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        data: { me: { ...me, thoughts: [...me.thoughts, createThought] } },
       });
     },
   });
@@ -47,7 +47,7 @@ export function ProfileCard() {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await createThought({
         variables: {
           thoughtText,
           username: Auth.getProfile().data.username,
@@ -96,7 +96,6 @@ export function ProfileCard() {
             w="282px"
             mt="24px"
             type="submit"
-            onSubmit={handleFormSubmit}
           >
             Post Thought
           </Button>
@@ -111,7 +110,6 @@ export function ProfileCard() {
               value={thoughtText}
               onChange={handleChange}
             />
-            
           </Stack>
         </Box>
       </Flex>

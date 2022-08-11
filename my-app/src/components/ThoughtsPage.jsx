@@ -60,7 +60,7 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
                 </Box>
                 <Box p="60px" fontSize="18px" bg="white">
                   <Stack as="ul" spacing="20px" pt="24px">
-                    <Container mt="36px">{thought.content}</Container>
+                    <Container mt="36px">{thought.thoughtText}</Container>
                     <Container>{thought.createdAt}</Container>
                     <Textarea minW="500px" placeholder="Comment" />
                     <Button colorScheme="purple" size="lg" w="282px">

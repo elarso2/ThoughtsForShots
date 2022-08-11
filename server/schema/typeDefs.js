@@ -52,7 +52,7 @@ const typeDefs = gql`
     createUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String): User
     login(email: String!, password: String!): Auth
-    createThought(thoughtText: String!, thoughtAuthor: String!): Thought
+    createThought(content: String!, username: String!): Thought
     createComment(
       thoughtId: ID!
       commentText: String!

@@ -75,6 +75,7 @@ const Login = (props) => {
       <Flex w="full" h="full" alignItems="center" justifyContent="center">
         <Stack w="full" maxW="md" spacing={4} p={6}>
           <img src={Logo} alt="Logo"></img>
+          <Heading fontSize="4xl">Thoughts for Shots!</Heading>
           <Heading fontSize="2xl" color="yellow.500">
             Login to your account!
           </Heading>

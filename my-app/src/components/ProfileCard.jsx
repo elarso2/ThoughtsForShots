@@ -111,11 +111,13 @@ export function ProfileCard() {
               value={thoughtText}
               onChange={handleChange}
             />
+            
           </Stack>
         </Box>
       </Flex>
       </form>
       </FormControl>
     </Box>
+
   );
 }

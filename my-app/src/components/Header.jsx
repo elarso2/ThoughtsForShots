@@ -47,8 +47,6 @@ export function Header() {
         <Button w="120px" h="40px" bg="yellow.700">
           Order History
         </Button>
-
-
         <Button w="110px" h="40px" bg="yellow.600">
           Pay Your Tab
         </Button>

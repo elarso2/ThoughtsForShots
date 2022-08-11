@@ -49,15 +49,20 @@ const resolvers = {
       }
 
       const token = signToken(user);
+      return { token, user };
     },
-    createThought: async (parent, { thoughts }, context) => {
+    createThought: async (parent, { content }, context) => {
       console.log(context);
       if (context.user) {
-        const thought = new Thought({ thoughts });
-
-        await User.findByIdAndUpdate(context.user._id, {
-          $push: { thoughts: thought },
+        const thought = await Thought.create({
+          content,
+          username: context.user.username,
         });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { thoughts: thought._id } }
+        );
 
         return thought;
       }

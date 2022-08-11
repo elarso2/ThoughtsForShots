@@ -33,12 +33,13 @@ const resolvers = {
     createUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-
+      console.log(token);
       return { token, user };
     },
     login: async (parent, { username, password }) => {
       const user = await User.findOne({ email });
-
+      const token = signToken(user);
+      console.log(token);
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
       }
@@ -48,7 +49,7 @@ const resolvers = {
         throw new AuthenticationError("Incorrect password");
       }
 
-      const token = signToken(user);
+      return { token, user };
     },
     createThought: async (parent, { thoughts }, context) => {
       console.log(context);

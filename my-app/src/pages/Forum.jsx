@@ -4,16 +4,15 @@ import { ProfileCard } from '../components/ProfileCard';
 import { ThoughtsPage } from '../components/ThoughtsPage';
 import { Footer } from '../components/Footer';
 
-// import Cart from '../components/Cart';
+import Cart from '../components/Cart';
 
-
-import Cart from '../components/Cart/Index';
+// import Cart from '../components/Cart/Index';
 
 const Home = () => {
   return (
     <div>
-      <Header /> 
-      {/* <Cart /> */}
+      <Header />
+      <Cart />
       <ProfileCard />
       <ThoughtsPage />
       <Footer />

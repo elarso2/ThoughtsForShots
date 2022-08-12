@@ -16,11 +16,19 @@ SO THAT my friends can see it and donate Shots to me to celebrate or help me unw
 
 ## Demonstration
 
+[![log in page](my-app/src/assets/loginscreenshot.PNG)](https://aerux-thoughts-for-shots.herokuapp.com/)
+
+![homepage](my-app/src/assets/homepagescreenshot.PNG)
+
 ## Dependencies
 
 For this application, we used the MERN stack (`Mongoose`, `Express.js`, `React.js`, and `Node.js`), alongside `Apollo-client`, `Apollo-server-express`, and `graphql`. Supplemental npm packages include `concurrently`, `moment`, `jsonwebtoken`, `jwt-decode`, and `bcrypt`.
 
 ## Troubleshooting
+
+When we first wrote the backend auth.js file, we failed to deconstruct `req` in the `authMiddleware` function, which ultimately led to the graphql server refusing to connect.
+
+We also discovered that the user authentication wasn't fully functioning, and the tokens are not being created properly, thus giving errors such as "invalid token authorization" and "cannot access 'token' before authorization". We spent hours reviewing all login functions, mutations, and queries, as well as all files and functions handling authorization, but were unable to find the bug causing these errors.
 
 ## Future Development
 

@@ -51,23 +51,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }, context) => {
-      console.log(context);
-      if (context.user) {
-        const thought = await Thought.create({
-          thoughtText,
-          username: context.user.username,
-        });
+    addThought: async (parent, { thoughtText, username }) => {
+      const thought = await Thought.create({ thoughtText, username });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
-        );
+      await User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { thoughts: thought._id } }
+      );
 
-        return thought;
-      }
-
-      throw new AuthenticationError("Not logged in");
+      return thought;
     },
 
     addComment: async (parent, { thoughtId, commentText }, context) => {

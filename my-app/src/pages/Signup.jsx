@@ -165,8 +165,9 @@ const Signup = () => {
           <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
         </FormControl>
 
-        <Button type="submit" variant="outline" bgColor="#421413">
+        <Button type="submit" variant="outline" bgColor="#421413" textColor='white'>
           {/* <Link to='/home'>Create Account</Link> */}
+          Create Account
         </Button>
         {/* </form> */}
       </VStack>

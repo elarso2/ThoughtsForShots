@@ -36,7 +36,7 @@ const Login = props => {
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
-    // console.log(formState);
+    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -48,10 +48,10 @@ const Login = props => {
     }
 
     // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
+    // setFormState({
+    //   email: '',
+    //   password: '',
+    // });
   };
 
   return (
@@ -76,7 +76,9 @@ const Login = props => {
           {data ? (
             <p>
               Success! You may now head{' '}
-              <Link to="/home">back to the homepage.</Link>
+              <Link as={RouterLink} to="/home">
+                back to the homepage.
+              </Link>
             </p>
           ) : (
             <form onSubmit={handleFormSubmit}>
@@ -109,7 +111,7 @@ const Login = props => {
               >
                 <Checkbox colorScheme="yellow">Remember Me</Checkbox>
                 <Button colorScheme="yellow" type="submit" py={2}>
-                  {/* <Link as={RouterLink} to="/"> */}
+                  {/* <Link as={RouterLink} to="/home"> */}
                   Submit
                   {/* </Link> */}
                 </Button>
@@ -122,6 +124,9 @@ const Login = props => {
                 </h3>
               </VStack>
             </form>
+          )}
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
           )}
         </Stack>
       </Flex>

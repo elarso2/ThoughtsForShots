@@ -88,11 +88,11 @@ const Cart = () => {
             <strong>Total: ${calculateTotal()}</strong>
 
             {/* Check to see if the user is logged in. If so render a button to check out */}
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
+            {/* {Auth.loggedIn() ? ( */}
+            <button onClick={submitCheckout}>Checkout</button>
+            {/* ) : (
               <span>(log in to check out)</span>
-            )}
+            )} */}
           </div>
         </div>
       ) : (

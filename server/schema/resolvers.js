@@ -36,7 +36,7 @@ const resolvers = {
       console.log(token);
       return { token, user };
     },
-    login: async (parent, { username, password }) => {
+    login: async (parent, args, { email, password }) => {
       const user = await User.findOne({ email });
 
       console.log(token);
@@ -48,8 +48,6 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect password");
       }
-
-      const token = signToken(user);
 
       return { token, user };
     },

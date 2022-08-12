@@ -5,9 +5,10 @@ import Signup from './pages/Signup';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { StoreProvider } from './utils/GlobalState';
 
+import { Link } from 'react-router-dom';
+
 import Profile from './pages/Profile';
 import Forumn from './pages/Forum';
-
 
 import {
   ApolloClient,
@@ -47,27 +48,26 @@ function App() {
     <ApolloProvider client={client}>
       <StoreProvider>
         <ChakraProvider>
-        <ColorModeSwitcher
-          justifySelf="flex-end"
-          position="absolute"
-          top={4}
-          right={3}
-        />
+          <ColorModeSwitcher
+            justifySelf="flex-end"
+            position="absolute"
+            top={4}
+            right={3}
+          />
+          {/* <Link rel="manifest" useHref="./manifest.json"></Link> */}
 
-        <Router>
-          <Routes>
-            <Route path="/" element={<Login />}></Route>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Login />}></Route>
 
-            <Route path="/signup" element={<Signup />}></Route>
+              <Route path="/signup" element={<Signup />}></Route>
 
-            <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
 
-
-            <Route path="/home" element={<Forumn />}></Route>
-          </Routes>
-        </Router>
+              <Route path="/home" element={<Forumn />}></Route>
+            </Routes>
+          </Router>
         </ChakraProvider>
-
       </StoreProvider>
     </ApolloProvider>
   );

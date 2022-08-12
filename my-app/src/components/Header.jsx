@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 const backgroundImage =
   'https://images.unsplash.com/photo-1601002053235-2efc24f4c210?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80';
 
-// const backgroundImage =
-//   'https://images.unsplash.com/photo-1601002053235-2efc24f4c210?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80';
 
 
 export function Header() {

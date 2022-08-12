@@ -37,7 +37,7 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
       <div>
         <Flex>
           {thoughts &&
-            thoughts.map(thought => {
+            thoughts.map((thought) => (
               <div>
                 <Box bg="#F0EAFB" p="60px">
                   <Container>{thought.username}</Container>
@@ -68,8 +68,8 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
                     </Button>
                   </Stack>
                 </Box>
-              </div>;
-            })}
+              </div>
+            ))}
         </Flex>
       </div>
     </Box>

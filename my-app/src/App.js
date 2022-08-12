@@ -4,12 +4,10 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { StoreProvider } from './utils/GlobalState';
-import { Header } from './components/Header';
-import { ProfileCard } from './components/ProfileCard';
-import { ThoughtsPage } from './components/ThoughtsPage';
 
 import Profile from './pages/Profile';
 import Forumn from './pages/Forum';
+
 
 import {
   ApolloClient,
@@ -48,7 +46,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <StoreProvider>
-        {/* <ChakraProvider> */}
+        <ChakraProvider>
         <ColorModeSwitcher
           justifySelf="flex-end"
           position="absolute"
@@ -68,7 +66,7 @@ function App() {
             <Route path="/home" element={<Forumn />}></Route>
           </Routes>
         </Router>
-        {/* </ChakraProvider> */}
+        </ChakraProvider>
 
       </StoreProvider>
     </ApolloProvider>

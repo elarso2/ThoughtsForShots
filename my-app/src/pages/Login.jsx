@@ -19,13 +19,12 @@ import {
 import LoginLogo from '../assets/Beer.jpg';
 import Logo from '../assets/TfSlogo.png';
 
-const Login = (props) => {
-
+const Login = props => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { name, value } = event.target;
 
     setFormState({
@@ -35,7 +34,7 @@ const Login = (props) => {
   };
 
   // submit form
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
     console.log(formState);
     try {
@@ -49,16 +48,11 @@ const Login = (props) => {
     }
 
     // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
+    // setFormState({
+    //   email: '',
+    //   password: '',
+    // });
   };
-
-    
-
-
-
 
   return (
     <HStack w="full" h="100vh">
@@ -79,49 +73,61 @@ const Login = (props) => {
           <Heading fontSize="2xl" color="yellow.500">
             Login to your account!
           </Heading>
-          <form onSubmit={handleFormSubmit}>
-            <FormControl id="email">
-              <FormLabel>Email</FormLabel>
-              <input
-                placeholder="username"
-                name="email"
-                type="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-            </FormControl>
-            <FormControl id="password" py={4}>
-              <FormLabel>Password</FormLabel>
-              <input
-                placeholder="password"
-                name="password"
-                type="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-            </FormControl>
-            <VStack
-              spacing={4}
-              direction="row"
-              align="start"
-              justify="space-between"
-              py={1}
-            >
-              <Checkbox colorScheme="yellow">Remember Me</Checkbox>
-              <Button colorScheme="yellow" type="submit" py={2}>
-                <Link as={RouterLink} to="/home">
+          {data ? (
+            <p>
+              Success! You may now head{' '}
+              <Link as={RouterLink} to="/home">
+                back to the homepage.
+              </Link>
+            </p>
+          ) : (
+            <form onSubmit={handleFormSubmit}>
+              <FormControl id="email">
+                <FormLabel>Email</FormLabel>
+                <input
+                  placeholder="username"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+              </FormControl>
+              <FormControl id="password" py={4}>
+                <FormLabel>Password</FormLabel>
+                <input
+                  placeholder="password"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </FormControl>
+              <VStack
+                spacing={4}
+                direction="row"
+                align="start"
+                justify="space-between"
+                py={1}
+              >
+                <Checkbox colorScheme="yellow">Remember Me</Checkbox>
+                <Button colorScheme="yellow" type="submit" py={2}>
+                  {/* <Link as={RouterLink} to="/home"> */}
                   Submit
-                </Link>
-              </Button>
-              <Link color={'yellow.500'}>Forgot Password?</Link>
-              <h3 py={4}>
-                Don't have an account? <br></br>
-                <Link as={RouterLink} to="/signup" color="yellow.500">
-                  Sign Up
-                </Link>
-              </h3>
-            </VStack>
-          </form>
+                  {/* </Link> */}
+                </Button>
+                <Link color={'yellow.500'}>Forgot Password?</Link>
+                <h3 py={4}>
+                  Don't have an account? <br></br>
+                  <Link as={RouterLink} to="/signup" color="yellow.500">
+                    Sign Up
+                  </Link>
+                </h3>
+              </VStack>
+            </form>
+          )}
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          )}
         </Stack>
       </Flex>
     </HStack>

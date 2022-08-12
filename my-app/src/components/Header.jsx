@@ -49,7 +49,7 @@ export function Header() {
         <Button w="100px" h="40px" bg="yellow.600">
           <Link to="/">Logout</Link>
         </Button>
-        <Button w="100px" h="40x" bg="yellow.500" id="buttonInstall">
+        <Button w="100px" h="40px" bg="yellow.500" id="buttonInstall">
           Install
         </Button>
       </HStack>

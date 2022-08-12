@@ -56,6 +56,7 @@ const Login = props => {
 
   return (
     <HStack w="full" h="100vh">
+      {/* <Link rel="manifest" useHref="./manifest.json"></Link> */}
       <Flex w="full" borderRightWidth={1}>
         <img
           objectFit="cover"

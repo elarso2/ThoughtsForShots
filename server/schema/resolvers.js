@@ -30,7 +30,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    createUser: async (parent, args) => {
+    addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
       console.log(token);
@@ -53,26 +53,18 @@ const resolvers = {
 
       return { token, user };
     },
-    createThought: async (parent, { content }, context) => {
-      console.log(context);
-      if (context.user) {
-        const thought = await Thought.create({
-          content,
-          username: context.user.username,
-        });
+    addThought: async (parent, { thoughtText, username }) => {
+      const thought = await Thought.create({ thoughtText, username });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
-        );
+      await User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { thoughts: thought._id } }
+      );
 
-        return thought;
-      }
-
-      throw new AuthenticationError("Not logged in");
+      return thought;
     },
 
-    createComment: async (parent, { thoughtId, commentText }, context) => {
+    addComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
           { _id: thoughtId },

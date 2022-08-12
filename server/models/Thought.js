@@ -4,7 +4,7 @@ const moment = require("moment");
 const { Schema, model } = mongoose;
 
 const thoughtSchema = new Schema({
-  content: {
+  thoughtText: {
     type: String,
     required: true,
     minLength: 10,

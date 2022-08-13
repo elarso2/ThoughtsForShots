@@ -45,7 +45,7 @@ export function ProfileCard() {
 
   const handleFormSubmit = async event => {
     event.preventDefault();
-console.log ("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII LINE 48!");
+    console.log('HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII LINE 48!');
     try {
       const { data } = await addThought({
         variables: {

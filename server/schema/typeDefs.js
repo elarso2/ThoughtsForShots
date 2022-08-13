@@ -19,7 +19,6 @@ const typeDefs = gql`
 
   type Drink {
     _id: ID!
-    name: String
     price: String
     quantity: String
   }
@@ -43,7 +42,7 @@ const typeDefs = gql`
   type Query {
     drink: Drink
     users: [User]
-    checkout(drink: [ID]!): Checkout
+    checkout(drinks: [ID]!): Checkout
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(thoughtId: ID!): Thought

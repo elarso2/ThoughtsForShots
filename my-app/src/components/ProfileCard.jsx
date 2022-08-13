@@ -109,6 +109,7 @@ export function ProfileCard() {
                   placeholder="Begin typing your thought..."
                   value={thoughtText}
                   onChange={handleChange}
+                  
                 />
               </Stack>
             </Box>

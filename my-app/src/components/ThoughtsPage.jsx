@@ -17,8 +17,8 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
   function addToTab() {
     const fourDollarShot = {
       name: 'shot',
-      quantity: '1',
-      price: '$4',
+      quantity: 1,
+      price: 4,
     };
 
     dispatch({ type: ADD_TO_CART, drink: fourDollarShot });
@@ -37,7 +37,7 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
       <div>
         <Flex>
           {thoughts &&
-            thoughts.map((thought) => (
+            thoughts.map(thought => (
               <div>
                 <Box bg="#F0EAFB" p="60px">
                   <Container>{thought.username}</Container>

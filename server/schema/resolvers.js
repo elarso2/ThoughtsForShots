@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Thought, Comment, Drink } = require("../models");
+const { User, Thought, Comment, Drink, Order } = require("../models");
 const { signToken } = require("../utils/auth");
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -28,6 +28,33 @@ const resolvers = {
     drink: async (parent, { _id }) => {
       return await Drink.findByID(_id);
     },
+
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const order = new Order({ drinks: args.drinks });
+      const line_items = [];
+
+      const { products } = await order.populate("drinks");
+
+      for (let i = 0; i < products.length; i++) {
+        const product = await stripe.products.create({
+          name: products[i].name,
+          description: products[i].description,
+          images: [`${url}/images/${products[i].image}`],
+        });
+
+        const price = await stripe.prices.create({
+          product: product.id,
+          unit_amount: products[i].price * 100,
+          currency: "usd",
+        });
+
+        line_items.push({
+          price: price.id,
+          quantity: 1,
+        });
+      }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -40,7 +67,6 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
-      console.log(token);
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
       }
@@ -49,6 +75,8 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect password");
       }
+
+      const token = signToken(user);
 
       return { token, user };
     },

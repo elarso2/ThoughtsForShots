@@ -4,9 +4,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { StoreProvider } from './utils/GlobalState';
-import { Header } from './components/Header';
-import { ProfileCard } from './components/ProfileCard';
-import { ThoughtsPage } from './components/ThoughtsPage';
+
+import { Link } from 'react-router-dom';
 
 import Profile from './pages/Profile';
 import Forumn from './pages/Forum';
@@ -48,28 +47,27 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <StoreProvider>
-        {/* <ChakraProvider> */}
-        <ColorModeSwitcher
-          justifySelf="flex-end"
-          position="absolute"
-          top={4}
-          right={3}
-        />
+        <ChakraProvider>
+          <ColorModeSwitcher
+            justifySelf="flex-end"
+            position="absolute"
+            top={4}
+            right={3}
+          />
+          {/* <Link rel="manifest" useHref="./manifest.json"></Link> */}
 
-        <Router>
-          <Routes>
-            <Route path="/" element={<Login />}></Route>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Login />}></Route>
 
-            <Route path="/signup" element={<Signup />}></Route>
+              <Route path="/signup" element={<Signup />}></Route>
 
-            <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
 
-
-            <Route path="/home" element={<Forumn />}></Route>
-          </Routes>
-        </Router>
-        {/* </ChakraProvider> */}
-
+              <Route path="/home" element={<Forumn />}></Route>
+            </Routes>
+          </Router>
+        </ChakraProvider>
       </StoreProvider>
     </ApolloProvider>
   );

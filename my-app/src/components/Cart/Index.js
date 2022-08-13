@@ -18,11 +18,11 @@ const stripePromise = loadStripe(
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
   // const dispatch = () => {};
   // const state = {};
   console.log(state);
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
+  console.log(data);
   // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend
   // Then we should redirect to the checkout with a reference to our session id
   useEffect(() => {
@@ -56,7 +56,7 @@ const Cart = () => {
       }
     });
     getCheckout({
-      variables: { drinksIds },
+      variables: { drinks: drinksIds },
     });
   }
 
@@ -73,7 +73,9 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="close" onClick={toggleCart}>
-        [close]
+        <span role="img" aria-label="trash">
+          ❌
+        </span>
       </div>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (

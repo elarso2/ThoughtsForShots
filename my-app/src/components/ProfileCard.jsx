@@ -6,7 +6,7 @@ import {
   Text,
   Image,
   Textarea,
-  FormControl
+  FormControl,
 } from '@chakra-ui/react';
 
 import React, { useState } from 'react';
@@ -45,7 +45,7 @@ export function ProfileCard() {
 
   const handleFormSubmit = async event => {
     event.preventDefault();
-
+    console.log('HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII LINE 48!');
     try {
       const { data } = await addThought({
         variables: {
@@ -81,40 +81,40 @@ export function ProfileCard() {
     >
       <FormControl>
         <form onSubmit={handleFormSubmit}>
-      <Flex>
-        <Box bg="#F0EAFB" p="60px">
-          <Image
-            borderRadius="full"
-            boxSize="200px"
-            src={ProfilePic}
-            alt="Dan Abramov"
-            ml="45px"
-          />
-          <Button
-            colorScheme="purple"
-            size="lg"
-            w="282px"
-            mt="24px"
-            type="submit"
-            onSubmit={handleFormSubmit}
-          >
-            Post Thought
-          </Button>
-        </Box>
-        <Box p="60px" fontSize="18px" bg="white">
-          <Text textAlign="center">Share your thought below</Text>
-          <Stack as="ul" spacing="20px" pt="24px">
-            <Textarea
-              name="thoughtText"
-              minW="500px"
-              placeholder="Begin typing your thought..."
-              value={thoughtText}
-              onChange={handleChange}
-            />
-          </Stack>
-        </Box>
-      </Flex>
-      </form>
+          <Flex>
+            <Box bg="#F0EAFB" p="60px">
+              <Image
+                borderRadius="full"
+                boxSize="200px"
+                src={ProfilePic}
+                alt="Dan Abramov"
+                ml="45px"
+              />
+              <Button
+                colorScheme="purple"
+                size="lg"
+                w="282px"
+                mt="24px"
+                type="submit"
+              >
+                Post Thought
+              </Button>
+            </Box>
+            <Box p="60px" fontSize="18px" bg="white">
+              <Text textAlign="center">Share your thought below</Text>
+              <Stack as="ul" spacing="20px" pt="24px">
+                <Textarea
+                  name="thoughtText"
+                  minW="500px"
+                  placeholder="Begin typing your thought..."
+                  value={thoughtText}
+                  onChange={handleChange}
+                  
+                />
+              </Stack>
+            </Box>
+          </Flex>
+        </form>
       </FormControl>
     </Box>
   );

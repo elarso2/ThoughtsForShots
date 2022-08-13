@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import Jumbotron from '../components/Jumbotron';
 
+import { Link } from 'react-router-dom';
+
 // Xavier to adjust mutations/constant names
 function Success() {
   useEffect(() => {
@@ -14,6 +16,7 @@ function Success() {
 
   return (
     <div>
+      {/* <Link rel="manifest" useHref="./manifest.json"></Link> */}
       <Jumbotron>
         <h1>Success!</h1>
         <h2>Thank you for your purchase!</h2>

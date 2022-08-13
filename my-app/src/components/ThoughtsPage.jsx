@@ -17,8 +17,8 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
   function addToTab() {
     const fourDollarShot = {
       name: 'shot',
-      quantity: '1',
-      price: '$4',
+      quantity: 1,
+      price: 4,
     };
 
     dispatch({ type: ADD_TO_CART, drink: fourDollarShot });
@@ -56,9 +56,10 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
         <Box p="60px" fontSize="18px" bg="white">
           <Stack as="ul" spacing="20px" pt="24px">
             <Container mt="36px">
-              It's always "T-Pain buy me a drank" but never, "T-Pain, let me buy
-              YOU a drink". :/
+              It's always T-Pain "Buy me a Drank" but never "T-Pain, let me buy
+              YOU a drank" :/{' '}
             </Container>
+
             <Textarea minW="500px" placeholder="Comment" />
             <Button colorScheme="purple" size="lg" w="282px">
               Reply

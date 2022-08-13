@@ -1,6 +1,7 @@
 {
   "short_name": "TfS",
   "name": "Thoughts for Shots",
+  "description": "Share your thoughts and buy your friends drinks!",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +9,19 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#6b46c1",
+  "background_color": "#b7791f"
 }

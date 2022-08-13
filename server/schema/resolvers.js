@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Thought, Comment, Drink } = require("../models");
+const { User, Thought, Comment, Drink, Order } = require("../models");
 const { signToken } = require("../utils/auth");
+
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -28,15 +29,52 @@ const resolvers = {
     drink: async (parent, { _id }) => {
       return await Drink.findByID(_id);
     },
+
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const order = new Order({ drinks: args.drinks });
+      const line_items = [];
+
+      const { products } = await order.populate("drinks");
+
+      for (let i = 0; i < products.length; i++) {
+        const product = await stripe.products.create({
+          name: products[i].name,
+          description: products[i].description,
+          images: [`${url}/images/${products[i].image}`],
+        });
+
+        const price = await stripe.prices.create({
+          product: product.id,
+          unit_amount: products[i].price * 100,
+          currency: "usd",
+        });
+
+        line_items.push({
+          price: price.id,
+          quantity: 1,
+        });
+      }
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/home`,
+      });
+
+      return { session: session.id };
+    },
   },
   Mutation: {
-    createUser: async (parent, args) => {
+    addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-
+      console.log(token);
       return { token, user };
     },
-    login: async (parent, { username, password }) => {
+
+    login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -49,23 +87,21 @@ const resolvers = {
       }
 
       const token = signToken(user);
+
+      return { token, user };
     },
-    createThought: async (parent, { thoughts }, context) => {
-      console.log(context);
-      if (context.user) {
-        const thought = new Thought({ thoughts });
+    addThought: async (parent, { thoughtText, username }) => {
+      const thought = await Thought.create({ thoughtText, username });
 
-        await User.findByIdAndUpdate(context.user._id, {
-          $push: { thoughts: thought },
-        });
+      await User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { thoughts: thought._id } }
+      );
 
-        return thought;
-      }
-
-      throw new AuthenticationError("Not logged in");
+      return thought;
     },
 
-    createComment: async (parent, { thoughtId, commentText }, context) => {
+    addComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
         return Thought.findOneAndUpdate(
           { _id: thoughtId },

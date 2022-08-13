@@ -7,30 +7,31 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
+        email
         password
+
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation createUser($username: String!, $email: String!, $password: String!) {
-    createUser(username: $username, email: $email, password: $password) {
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
       token
       user {
         _id
         username
-        password
       }
     }
   }
 `;
 
 export const ADD_THOUGHT = gql`
-  mutation createThought($thoughtText: String!) {
-    createThought(content: $content) {
+  mutation addThought($thoughtText: String!) {
+    addThought(thoughtText: $thoughtText) {
       _id
-      content
+      thoughtText
       username
       createdAt
       comments {
@@ -42,10 +43,10 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation createComment($thoughtId: ID!, $commentText: String!) {
-    createComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation addComment($thoughtId: ID!, $commentText: String!) {
+    addComment(thoughtId: $thoughtId, commentText: $commentText) {
       _id
-      content
+      thoughtText
       username
       createdAt
       comments {

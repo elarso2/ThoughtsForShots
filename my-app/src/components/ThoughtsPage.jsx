@@ -11,6 +11,8 @@ import { useStoreContext } from '../utils/GlobalState';
 import { ADD_TO_CART } from '../utils/actions';
 import ProfilePic from '../assets/t-pain.jpg';
 
+
+
 export function ThoughtsPage({ thoughts, showUsername = true }) {
   const [state, dispatch] = useStoreContext();
 
@@ -34,13 +36,10 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
       textAlign="center"
       as="section"
     >
-      <div>
+
         <Flex>
-          {thoughts &&
-            thoughts.map(thought => (
-              <div>
                 <Box bg="#F0EAFB" p="60px">
-                  <Container>{thought.username}</Container>
+                  
                   <Image
                     borderRadius="full"
                     boxSize="200px"
@@ -60,18 +59,15 @@ export function ThoughtsPage({ thoughts, showUsername = true }) {
                 </Box>
                 <Box p="60px" fontSize="18px" bg="white">
                   <Stack as="ul" spacing="20px" pt="24px">
-                    <Container mt="36px">{thought.thoughtText}</Container>
-                    <Container>{thought.createdAt}</Container>
+                    <Container mt="36px">It's allways T-Pain "Buy me a Drank" but never "T-Pain, let me buy YOU a drank" :/ </Container>
+                    
                     <Textarea minW="500px" placeholder="Comment" />
                     <Button colorScheme="purple" size="lg" w="282px">
                       Reply
                     </Button>
                   </Stack>
                 </Box>
-              </div>
-            ))}
         </Flex>
-      </div>
     </Box>
   );
 }

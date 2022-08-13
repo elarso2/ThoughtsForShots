@@ -2,7 +2,7 @@ import React from 'react';
 import { Center, Text } from '@chakra-ui/react';
 import { FaGithub } from 'react-icons/fa';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export function Footer() {
   //   const location = useLocation();
@@ -19,7 +19,7 @@ export function Footer() {
           </h4>
         </Center>
 
-        <FontAwesomeIcon icon="fa-brands fa-square-github" />
+        {/* <FontAwesomeIcon icon="fa-brands fa-square-github" /> */}
       </div>
     </footer>
   );

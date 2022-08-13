@@ -10,7 +10,7 @@ db.once("open", async () => {
 
     await User.create(userSeeds);
     const users = await User.find({});
-    console.log(users.map((user) => user._id))
+    console.log(users.map((user) => user._id));
     for (let i = 0; i < thoughtSeeds.length; i++) {
       const { _id, username } = await Thought.create(thoughtSeeds[i]);
       const user = await User.findOneAndUpdate(

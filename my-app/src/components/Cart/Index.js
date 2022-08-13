@@ -18,15 +18,14 @@ const stripePromise = loadStripe(
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
   // const dispatch = () => {};
   // const state = {};
   console.log(state);
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
+  console.log(data);
   // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend
   // Then we should redirect to the checkout with a reference to our session id
   useEffect(() => {
-    console.log(data);
     if (data) {
       stripePromise.then(res => {
         res.redirectToCheckout({ sessionId: data.checkout.session });

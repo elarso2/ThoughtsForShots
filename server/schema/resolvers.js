@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Thought, Comment, Drink, Order } = require("../models");
 const { signToken } = require("../utils/auth");
+
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -54,6 +55,15 @@ const resolvers = {
           quantity: 1,
         });
       }
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/home`,
+      });
+
+      return { session: session.id };
     },
   },
   Mutation: {

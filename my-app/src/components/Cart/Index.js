@@ -21,8 +21,8 @@ const Cart = () => {
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
   // const dispatch = () => {};
   // const state = {};
-  console.log(state);
-  console.log(data);
+  console.log('Cart Index, State: ', state);
+  console.log('Cart Index Data', data);
   // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend
   // Then we should redirect to the checkout with a reference to our session id
   useEffect(() => {
